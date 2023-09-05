@@ -1,0 +1,16 @@
+local Players = game:GetService("Players")
+
+local function HighlightPlayer(Player)
+  local Character = Player.Character
+  if Character then
+    local Highlight = Instance.new("Highlight")
+    Highlight.FillColor = Color3.new(1, 0, 0)
+    Highlight.Parent = Character
+  end
+end
+
+Players.PlayerAdded:Connect(HighlightPlayer)
+
+for _, Player in pairs(Players:GetPlayers()) do
+  HighlightPlayer(Player)
+end
